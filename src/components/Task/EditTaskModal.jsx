@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Tasks.css";
 
 function EditTaskModal({ task, onClose, onTaskUpdated }) {
+    const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -29,7 +30,7 @@ function EditTaskModal({ task, onClose, onTaskUpdated }) {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:8080/api/v1/tasks/${task.id}`, {
+    const response = await fetch(API_BASE + `api/v1/tasks/${task.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

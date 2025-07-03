@@ -5,6 +5,7 @@ import './LoginForm.css';
 
 function LoginForm(){
 
+    const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ function LoginForm(){
         const handleSubmit = async(event) => {
             event.preventDefault();
             try{
-                const response = await fetch('http://localhost:8080/api/v1/auth/authenticate', {
+                const response = await fetch(API_BASE + 'api/v1/auth/authenticate', {
                     method: 'Post',
                     headers: {
                         'Content-Type': 'application/json'

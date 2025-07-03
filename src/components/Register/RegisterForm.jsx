@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function RegisterForm(){
-
+    const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ function RegisterForm(){
     const handleSubmit = async(event) => {
         event.preventDefault();
 
-        const response = await fetch('http://localhost:8080/api/v1/auth/register', {
+        const response = await fetch(API_BASE + 'api/v1/auth/register', {
             method: 'Post',
             headers: {
                 'Content-Type': 'application/json'

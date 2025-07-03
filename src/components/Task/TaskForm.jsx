@@ -2,6 +2,7 @@ import { useState } from "react";
 import './Tasks.css';
 
 function TaskForm({ onTaskCreated, onClose  }) {
+  const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -20,7 +21,7 @@ function TaskForm({ onTaskCreated, onClose  }) {
 
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:8080/api/v1/tasks", {
+    const response = await fetch(API_BASE + "api/v1/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

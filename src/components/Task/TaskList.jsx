@@ -4,6 +4,7 @@ import { FaTrash } from "react-icons/fa";
 import EditTaskModal from "./EditTaskModal";
 
 function TaskList() {
+  const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
   const [tasks, setTasks] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +14,7 @@ function TaskList() {
   const fetchTasks = async () => {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:8080/api/v1/tasks", {
+    const response = await fetch(API_BASE + "api/v1/tasks", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -32,7 +33,7 @@ function TaskList() {
   const handleToggleCompleted = async (taskId) => {
     const token = localStorage.getItem('token');
 
-    const response = await fetch(`http://localhost:8080/api/v1/tasks/${taskId}/toggle`, {
+    const response = await fetch(API_BASE + `api/v1/tasks/${taskId}/toggle`, {
       method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -50,7 +51,7 @@ function TaskList() {
 
 const deleteTask = async (taskId) => {
   const token = localStorage.getItem("token");
-  await fetch(`http://localhost:8080/api/v1/tasks/${taskId}`, {
+  await fetch(API_BASE + `api/v1/tasks/${taskId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
