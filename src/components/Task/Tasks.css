@@ -1,0 +1,338 @@
+.hero {
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  height: 100px;
+}
+.dashboard {
+  font-size: 2rem;
+  cursor: default;
+  position: relative;
+  display: inline-block;
+}
+
+.dashboard::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: teal;
+  width: 100%;
+  transition: width 0.4s ease;
+  animation: underlineGrow 1.5s ease forwards;
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.right-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.createTask {
+  font-size: 1rem;
+  cursor: pointer;
+  color: teal;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 0.6rem 1rem;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.createTask:hover {
+  color: rgba(0, 255, 255, 0.5);
+}
+.logout-button {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: teal;
+  color: white;
+  border: none;
+  margin: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+}
+
+.logout-button:hover {
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+.taskContainer {
+  background-color: white;
+  padding: 50px;
+  height: 77vh;
+  margin: 40px;
+  box-sizing: border-box;
+}
+.taskHeader {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  border-bottom: 2px solid black;
+}
+
+.allTasks {
+  margin-top: 20px;
+  height: 55vh;
+  border: 1px solid black;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.allTasks::-webkit-scrollbar {
+  width: 6px;
+}
+
+.allTasks::-webkit-scrollbar-thumb {
+  background-color: teal;
+  border-radius: 4px;
+}
+
+.task-item {
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px teal;
+  gap: 1rem;
+  transition: padding 0.3s ease;
+}
+
+.task-item:hover {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.task-item.overdue {
+  color: red;
+  box-shadow: 0 0px 2px red;
+}
+
+.task-item input[type="checkbox"] {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.task-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.task-text h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.task-text p {
+  margin: 0.2rem 0 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.task-item.completed .task-text h4,
+.task-item.completed .task-text p,
+.task-item.completed .task-text small {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.edit-button,
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.edit-button:hover {
+  color: #007bff;
+}
+
+.delete-button:hover {
+  color: darkred;
+}
+
+.task-form-container {
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.2s ease-in-out;
+}
+
+.task-form-container h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: teal;
+}
+
+.task-form input,
+.task-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.task-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.task-form button {
+  background-color: teal;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background-color: rgba(0, 128, 128, 0.7);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: darkred;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.edit-button,
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-button:focus,
+.delete-button:focus,
+.logout-button:focus,
+.createTask:focus {
+  outline: 2px solid teal;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal p {
+  border: 2px solid red;
+  padding: 1rem;
+}
+
+.modal-buttons .modal-yes {
+  background-color: red !important;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.modal-buttons button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: teal;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: gray;
+  color: white;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
