@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function RegisterForm(){
-    const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
+    const API_BASE = "https://task-tracker-backend-dvvx.onrender.com/";
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({

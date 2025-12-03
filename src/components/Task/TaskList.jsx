@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa";
 import EditTaskModal from "./EditTaskModal";
 
 function TaskList() {
-  const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
+  const API_BASE = "https://task-tracker-backend-dvvx.onrender.com/";
   const [tasks, setTasks] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [showModal, setShowModal] = useState(false);

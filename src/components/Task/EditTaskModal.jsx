@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Tasks.css";
 
 function EditTaskModal({ task, onClose, onTaskUpdated }) {
-    const API_BASE = "https://task-tracker-backend-production-ccd1.up.railway.app/";
+    const API_BASE = "https://task-tracker-backend-dvvx.onrender.com/";
   const [formData, setFormData] = useState({
     title: "",
     description: "",
